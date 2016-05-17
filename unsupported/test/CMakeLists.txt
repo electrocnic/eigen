@@ -63,7 +63,7 @@ else()
   ei_add_property(EIGEN_MISSING_BACKENDS "fftw, ")
 endif()
 
-option(EIGEN_TEST_NO_OPENGL "Disable OpenGL support in unit tests" OFF)
+option(EIGEN_TEST_NO_OPENGL "Disable OpenGL support in unit tests" ON)
 if(NOT EIGEN_TEST_NO_OPENGL)
   find_package(OpenGL)
   find_package(GLUT)
