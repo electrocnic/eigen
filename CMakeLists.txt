@@ -422,19 +422,19 @@ include(EigenConfigureTesting)
 enable_testing() # must be called from the root CMakeLists, see man page
 
 
-if(EIGEN_LEAVE_TEST_IN_ALL_TARGET)
-  add_subdirectory(test) # can't do EXCLUDE_FROM_ALL here, breaks CTest
-else()
-  add_subdirectory(test EXCLUDE_FROM_ALL)
-endif()
-
 #if(EIGEN_LEAVE_TEST_IN_ALL_TARGET)
-#  add_subdirectory(blas)
-#  add_subdirectory(lapack)
+#  add_subdirectory(test) # can't do EXCLUDE_FROM_ALL here, breaks CTest
 #else()
-#  add_subdirectory(blas EXCLUDE_FROM_ALL)
-#  add_subdirectory(lapack EXCLUDE_FROM_ALL)
+#  add_subdirectory(test EXCLUDE_FROM_ALL)
 #endif()
+
+if(EIGEN_LEAVE_TEST_IN_ALL_TARGET)
+  add_subdirectory(blas)
+  add_subdirectory(lapack)
+else()
+  add_subdirectory(blas EXCLUDE_FROM_ALL)
+  add_subdirectory(lapack EXCLUDE_FROM_ALL)
+endif()
 
 # add SYCL
 option(EIGEN_TEST_SYCL "Add Sycl support." OFF)
