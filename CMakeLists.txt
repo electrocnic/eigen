@@ -414,7 +414,7 @@ endif()
 
 add_subdirectory(Eigen)
 
-add_subdirectory(doc EXCLUDE_FROM_ALL)
+#add_subdirectory(doc EXCLUDE_FROM_ALL)
 
 include(EigenConfigureTesting)
 
@@ -432,8 +432,8 @@ if(EIGEN_LEAVE_TEST_IN_ALL_TARGET)
   add_subdirectory(blas)
   add_subdirectory(lapack)
 else()
-  add_subdirectory(blas EXCLUDE_FROM_ALL)
-  add_subdirectory(lapack EXCLUDE_FROM_ALL)
+    #add_subdirectory(blas EXCLUDE_FROM_ALL)
+    #add_subdirectory(lapack EXCLUDE_FROM_ALL)
 endif()
 
 # add SYCL
@@ -445,19 +445,19 @@ endif()
 
 add_subdirectory(unsupported)
 
-add_subdirectory(demos EXCLUDE_FROM_ALL)
+#add_subdirectory(demos EXCLUDE_FROM_ALL)
 
 # must be after test and unsupported, for configuring buildtests.in
-add_subdirectory(scripts EXCLUDE_FROM_ALL)
+#add_subdirectory(scripts EXCLUDE_FROM_ALL)
 
-# TODO: consider also replacing EIGEN_BUILD_BTL by a custom target "make btl"?
-if(EIGEN_BUILD_BTL)
-  add_subdirectory(bench/btl EXCLUDE_FROM_ALL)
-endif(EIGEN_BUILD_BTL)
+## TODO: consider also replacing EIGEN_BUILD_BTL by a custom target "make btl"?
+#if(EIGEN_BUILD_BTL)
+#  add_subdirectory(bench/btl EXCLUDE_FROM_ALL)
+#endif(EIGEN_BUILD_BTL)
 
-if(NOT WIN32)
-  add_subdirectory(bench/spbench EXCLUDE_FROM_ALL)
-endif(NOT WIN32)
+#if(NOT WIN32)
+#  add_subdirectory(bench/spbench EXCLUDE_FROM_ALL)
+#endif(NOT WIN32)
 
 configure_file(scripts/cdashtesting.cmake.in cdashtesting.cmake @ONLY)
 
