@@ -11,6 +11,8 @@
 #ifndef EIGEN_BROWSE_MATRICES_H
 #define EIGEN_BROWSE_MATRICES_H
 
+#define DT_DIR 4
+
 namespace Eigen {
 
 enum {
